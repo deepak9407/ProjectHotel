@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Sign In</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<center>
+
+<nav class="navbar navbar-light bg-light">
+    <div class="header">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSH7CX-3rqjPBvPpucnfL45RxTc330_IBQ-LuN2_Mo8kUga4zQXlTXnIYxZ2c3aZlaHiME&usqp=CAU" alt="logo" />
+
+    </div>
+</nav>
+<div class="container my-5">
+    <h3 style="color:green">Sign In</h3>
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-10">
+
+                <div class="row">
+
+                    <div class="form-group col-md-8">
+                        <form th:action="@{/login}" method="POST" class="form-signin">
+                            <h3 style="color:green" class="form-signin-heading" th:text="Welcome"></h3>
+                            <br/>
+                            <div class="form-group col-md-8">
+                                <input type="text" id="email" name="email" placeholder="Email"
+                                       class="form-control"/> <br/>
+                            </div>
+                            <div class="form-group col-md-8">
+                                <input type="password" th:placeholder="Password"
+                                       id="password" name="password" class="form-control"/> <br/>
+                            </div>
+                            <div align="center" th:if="${param.error}">
+                                <p style="font-size: 20; color: #FF1C19;">User Name or Password invalid, please
+                                    verify</p>
+                            </div>
+                            <div class="form-group col-md-8">
+                                <button class="btn btn-primary" name="Submit" value="Login"
+                                        type="Submit"
+                                        th:text="Login"></button>
+                                <input type="reset" class="btn btn-primary" value=" Reset ">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <form th:action="@{/registration}" method="get">
+
+                <button class="btn btn-primary" type="Submit">Sign Up</button>
+                <h5 style="color:green">Create a free account</h5>
+            </form>
+        </div>
+    </div>
+
+</div>
+</center>
+</body>
+</html>
